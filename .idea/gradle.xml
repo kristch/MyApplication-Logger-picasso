@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/LoggerDemo" />
+            <option value="$PROJECT_DIR$/MyButterKnife" />
             <option value="$PROJECT_DIR$/PicasoDemo" />
           </set>
         </option>

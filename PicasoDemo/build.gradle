@@ -1,34 +1,80 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.application'//代表该项目是一个安卓项目 这是规范
+
 
 android {
-    compileSdkVersion 22
+    //编译sdk版本
+    compileSdkVersion 24
+    //build tools 版本
     buildToolsVersion "21.1.2"
 
     defaultConfig {
+        //应用包名
         applicationId "com.example.administrator.myapplication"
+    //最小支持的sdk版本
         minSdkVersion 17
+        //目标sdk版本
         targetSdkVersion 22
+        //版本号
         versionCode 1
+        //版本名字
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
+    signingConfigs{
+        debug{
+
+        }
+        release{
+            //签名的一些信息
+           // storeFile file("../test.keystrore");
+          //  storePassword "test"
+         //   keyAlias "test"
+          //  keyPassword "test"
+        }
+    }
     buildTypes {
-        release {
+        debug{
+            versionNameSuffix "-debug"
+            //是否开启混淆
             minifyEnabled false
+            //是否zip优化
+            zipAlignEnabled false
+
+            //删除一些无用资源
+            shrinkResources false
+            //签名所用的配置文件
+            // signingConfig signingConfig.debug
+
+        }
+        release {
+            //是否开启混淆
+            minifyEnabled false
+            //是否zip优化
+            zipAlignEnabled false
+
+            //删除一些无用资源
+            shrinkResources false
+            //签名所用的配置文件
+           // signingConfig signingConfig.release
+
+            //混淆所用的文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 }
-
+//这个节点是用来管理依赖的
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //编译libs目录下的所有jar包
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:22.2.1'
+    compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
-
+    compile 'com.github.GrenderG:Toasty:1.1.3'
     compile 'jp.wasabeef:picasso-transformations:2.1.0'
+
+
 }

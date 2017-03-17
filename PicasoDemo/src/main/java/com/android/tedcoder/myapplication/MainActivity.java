@@ -11,6 +11,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import es.dmoral.toasty.Toasty;
 import jp.wasabeef.picasso.transformations.CropCircleTransformation;
 /**
  * 代码补全 ctr+shift +enter
@@ -84,7 +85,10 @@ public class MainActivity extends AppCompatActivity {
         initView();
         test();
         test2();
-        Toast.makeText(this, "hello", Toast.LENGTH_LONG).show();
+        Toasty.error(this,"这是个错误").show();
+        Toasty.info(this, "Hello World").show();
+       // Toast.makeText(this, "hello", Toast.LENGTH_LONG).show();
+        //第三方框架使用
     }
     /**
      * 包裹代码
